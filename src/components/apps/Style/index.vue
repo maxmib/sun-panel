@@ -38,22 +38,13 @@ const maxWidthUnitOption = [
 
 
 export default {
-  data() {
-    return {
-      panelState: {
-        panelConfig: {
-          maxWidth: '1200', // 初始值为字符串
-        },
-      },
-    };
-  },
-  watch: {
-    'panelState.panelConfig.maxWidth'(newValue) {
-      // 如果需要将字符串转换为数字，可以在这里处理
-      this.panelState.panelConfig.maxWidth = Number(newValue);
+  // ...数据和方法定义...
+  methods: {
+    updateMaxWidth(value) {
+      this.panelState.panelConfig.maxWidth = Number(value);
     },
   },
-};
+}
 
 
 
@@ -272,7 +263,7 @@ function resetPanelConfig() {
             <span class="mr-[10px]">{{ $t('apps.baseSettings.maxWidth') }}</span>
             <div class="flex">
               <NInputGroup>
-                <NInput v-model:value="panelState.panelConfig.maxWidth" size="small"  :maxlength="10" :style="{ width: '100px' }" placeholder="1200" />
+                <NInput v-model:value="maxWidthString" size="small"  :maxlength="10" :style="{ width: '100px' }" placeholder="1200" />
                 <NSelect v-model:value="panelState.panelConfig.maxWidthUnit" :style="{ width: '80px' }" :options="maxWidthUnitOption" size="small" />
               </NInputGroup>
             </div>
