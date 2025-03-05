@@ -36,38 +36,20 @@ const maxWidthUnitOption = [
   },
 ]
 
-
-export default {
-  setup() {
-    const panelState = ref({
-      panelConfig: {
-        maxWidth: '1200', // 初始值为字符串
-      },
-    });
-
-    const maxWidthNumber = computed({
-      get: () => Number(panelState.value.panelConfig.maxWidth),
-      set: (value) => {
-        panelState.value.panelConfig.maxWidth = value.toString();
-      },
-    });
-
-    watch(
-      () => panelState.value.panelConfig.maxWidth,
-      (newValue) => {
-        panelState.value.panelConfig.maxWidth = Number(newValue);
-      }
-    );
-
-    return {
-      panelState,
-      maxWidthNumber,
-    };
+const panelState = ref({
+  panelConfig: {
+    maxWidth: '1200', // 初始值为字符串
   },
-}
+})
 
-
-
+const maxWidthString = computed({
+  get() {
+    return panelState.value.panelConfig.maxWidth.toString();
+  },
+  set(value) {
+    panelState.value.panelConfig.maxWidth = value; // 保持字符串类型
+  },
+})
 
 	
 watch(panelState.panelConfig, () => {
@@ -283,7 +265,7 @@ function resetPanelConfig() {
             <span class="mr-[10px]">{{ $t('apps.baseSettings.maxWidth') }}</span>
             <div class="flex">
               <NInputGroup>
-                <NInput v-model:value="maxWidthNumber" size="small"  :maxlength="10" :style="{ width: '100px' }" placeholder="1200" />
+                <NInput v-model:value="maxWidthString" size="small"  :maxlength="10" :style="{ width: '100px' }" placeholder="1200" />
                 <NSelect v-model:value="panelState.panelConfig.maxWidthUnit" :style="{ width: '80px' }" :options="maxWidthUnitOption" size="small" />
               </NInputGroup>
             </div>
