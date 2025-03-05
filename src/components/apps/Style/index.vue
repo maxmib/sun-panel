@@ -36,11 +36,7 @@ const maxWidthUnitOption = [
   },
 ]
 
-const panelState = ref({
-  panelConfig: {
-    maxWidth: '1200', // 初始值为字符串
-  },
-})
+
 
 const maxWidthString = computed({
   get() {
