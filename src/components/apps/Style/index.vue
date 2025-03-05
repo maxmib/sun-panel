@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 import type { UploadFileInfo } from 'naive-ui'
 import { NButton, NCard, NColorPicker, NGrid, NGridItem, NInput, NInputGroup, NPopconfirm, NSelect, NSlider, NSwitch, NUpload, NUploadDragger, useMessage } from 'naive-ui'
 import { useAuthStore, usePanelState } from '@/store'
@@ -38,11 +38,31 @@ const maxWidthUnitOption = [
 
 
 export default {
-  // ...数据和方法定义...
-  methods: {
-    updateMaxWidth(value) {
-      this.panelState.panelConfig.maxWidth = Number(value);
-    },
+  setup() {
+    const panelState = ref({
+      panelConfig: {
+        maxWidth: '1200', // 初始值为字符串
+      },
+    });
+
+    const maxWidthNumber = computed({
+      get: () => Number(panelState.value.panelConfig.maxWidth),
+      set: (value) => {
+        panelState.value.panelConfig.maxWidth = value.toString();
+      },
+    });
+
+    watch(
+      () => panelState.value.panelConfig.maxWidth,
+      (newValue) => {
+        panelState.value.panelConfig.maxWidth = Number(newValue);
+      }
+    );
+
+    return {
+      panelState,
+      maxWidthNumber,
+    };
   },
 }
 
@@ -263,7 +283,7 @@ function resetPanelConfig() {
             <span class="mr-[10px]">{{ $t('apps.baseSettings.maxWidth') }}</span>
             <div class="flex">
               <NInputGroup>
-                <NInput v-model:value="maxWidthString" size="small"  :maxlength="10" :style="{ width: '100px' }" placeholder="1200" />
+                <NInput v-model:value="maxWidthNumber" size="small"  :maxlength="10" :style="{ width: '100px' }" placeholder="1200" />
                 <NSelect v-model:value="panelState.panelConfig.maxWidthUnit" :style="{ width: '80px' }" :options="maxWidthUnitOption" size="small" />
               </NInputGroup>
             </div>
