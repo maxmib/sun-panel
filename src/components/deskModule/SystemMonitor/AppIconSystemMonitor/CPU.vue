@@ -11,6 +11,7 @@ interface Prop {
   textColor: string
   progressColor: string
   progressRailColor: string
+	timer: number
 }
 
 const props = defineProps<Prop>()
