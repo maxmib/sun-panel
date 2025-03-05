@@ -40,10 +40,10 @@ const maxWidthUnitOption = [
 
 const maxWidthString = computed({
   get() {
-    return panelState.value.panelConfig.maxWidth.toString();
+    return panelState.panelConfig.maxWidth.toString();
   },
   set(value) {
-    panelState.value.panelConfig.maxWidth = value; // 保持字符串类型
+    panelState.panelConfig.maxWidth = value; // 保持字符串类型
   },
 })
 
