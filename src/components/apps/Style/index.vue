@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch,PropType  } from 'vue'
 import type { UploadFileInfo } from 'naive-ui'
 import { NButton, NCard, NColorPicker, NGrid, NGridItem, NInput, NInputGroup, NPopconfirm, NSelect, NSlider, NSwitch, NUpload, NUploadDragger, useMessage } from 'naive-ui'
 import { useAuthStore, usePanelState } from '@/store'
@@ -42,6 +42,19 @@ const maxWidthUnitOption = [
 const props = defineProps({
   panelState: Object,
 })
+type PanelStateType = {
+  panelConfig: {
+    maxWidth: string | number;
+  };
+}
+
+// 使用 defineProps 并指定类型
+const props = defineProps({
+  panelState: {
+    type: Object as PropType<PanelStateType>,
+    required: true, // 确保 panelState 是必需的
+  },
+})
 
 // 使用计算属性来转换 maxWidth 的值为字符串
 const maxWidthString = computed({
@@ -49,8 +62,6 @@ const maxWidthString = computed({
     return props.panelState.panelConfig.maxWidth.toString();
   },
   set(value) {
-    // 如果需要，可以在这里处理值的设置
-    // 例如，将字符串转换回数字并更新 panelState
     props.panelState.panelConfig.maxWidth = Number(value);
   },
 })
