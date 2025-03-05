@@ -38,10 +38,7 @@ const maxWidthUnitOption = [
 
 
 
-// 假设 panelState 是通过 props 传递进来的
-const props = defineProps({
-  panelState: Object,
-})
+
 type PanelStateType = {
   panelConfig: {
     maxWidth: string | number;
