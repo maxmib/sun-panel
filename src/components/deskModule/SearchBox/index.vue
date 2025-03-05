@@ -8,7 +8,7 @@ import { VisitMode } from '@/enums/auth'
 
 import SvgSrcBaidu from '@/assets/search_engine_svg/baidu.svg'
 import SvgSrcBing from '@/assets/search_engine_svg/bing.svg'
-import SvgSrcGoogle from '@/assets/search_engine_svg/google.svg'
+
 
 withDefaults(defineProps<{
   background?: string
