@@ -13,7 +13,7 @@ interface Prop {
   progressColor: string
   progressRailColor: string
   path: string
-	timer: number
+	timer: Timeout
 }
 
 const props = defineProps<Prop>()
