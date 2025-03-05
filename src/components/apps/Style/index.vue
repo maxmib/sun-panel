@@ -38,12 +38,20 @@ const maxWidthUnitOption = [
 
 
 
+// 假设 panelState 是通过 props 传递进来的
+const props = defineProps({
+  panelState: Object,
+})
+
+// 使用计算属性来转换 maxWidth 的值为字符串
 const maxWidthString = computed({
   get() {
-    return panelState.panelConfig.maxWidth.toString();
+    return props.panelState.panelConfig.maxWidth.toString();
   },
   set(value) {
-    panelState.panelConfig.maxWidth = value; // 保持字符串类型
+    // 如果需要，可以在这里处理值的设置
+    // 例如，将字符串转换回数字并更新 panelState
+    props.panelState.panelConfig.maxWidth = Number(value);
   },
 })
 
