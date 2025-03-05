@@ -34,19 +34,14 @@ const isFocused = ref(false)
 const searchSelectListShow = ref(false)
 const defaultSearchEngineList = ref<DeskModule.SearchBox.SearchEngine[]>([
   {
-    iconSrc: SvgSrcGoogle,
-    title: 'Google',
+    iconSrc: SvgSrcBing,
+    title: '总站',
     url: 'https://www.google.com/search?q=%s',
   },
   {
     iconSrc: SvgSrcBaidu,
-    title: 'Baidu',
+    title: '省站',
     url: 'https://www.baidu.com/s?wd=%s',
-  },
-  {
-    iconSrc: SvgSrcBing,
-    title: 'Bing',
-    url: 'https://www.bing.com/search?q=%s',
   },
 ])
 
