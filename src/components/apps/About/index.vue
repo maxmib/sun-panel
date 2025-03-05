@@ -39,11 +39,11 @@ onMounted(() => {
       </div>
       <div class="text-xl">
         <NGradientText type="info">
-          <a href="https://github.com/hslr-s/sun-panel/releases" class="font-semibold" :title="$t('apps.about.viewUpdateLog')" target="_blank">v{{ versionName }}</a>
+          <a class="font-semibold" :title="$t('apps.about.viewUpdateLog')" >v{{ versionName }}</a>
         </NGradientText>
       </div>
       <div class="mt-2">
-        <a href="https://github.com/hslr-s/sun-panel/releases" target="_blank" class="link">{{ $t('apps.about.checkUpdate') }}</a>
+        <a>{{ $t('apps.about.checkUpdate') }}</a>
       </div>
     </div>
   </div>
