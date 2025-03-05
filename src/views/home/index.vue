@@ -361,8 +361,9 @@ function handleAddItem(itemIconGroupId?: number) {
           </div>
         </div>
 
-
-
+        <!-- 应用盒子 -->
+        <div :style="{ marginLeft: `${panelState.panelConfig.marginX}px`, marginRight: `${panelState.panelConfig.marginX}px` }">
+	
           <!-- 组纵向排列 -->
           <div
             v-for="(itemGroup, itemGroupIndex) in filterItems" :key="itemGroupIndex"
