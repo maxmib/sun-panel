@@ -14,7 +14,7 @@ export function defaultStatePanelConfig(): Panel.panelConfig {
     iconTextColor: '#ffffff',
     iconTextInfoHideDescription: false,
     iconTextIconHideTitle: false,
-    logoText: 'Panel',
+    logoText: '智能平台',
     logoImageSrc: '',
     clockShowSecond: false,
     searchBoxShow: false,
