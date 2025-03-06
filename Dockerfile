@@ -61,4 +61,4 @@ RUN apk add --no-cache bash ca-certificates su-exec tzdata \
     && chmod +x ./sun-panel \
     && ./sun-panel -config
 
-CMD ["/bin/bash", "/app/sun-panel"]
+CMD ["/app/sun-panel"]
