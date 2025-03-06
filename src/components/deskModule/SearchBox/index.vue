@@ -36,12 +36,12 @@ const defaultSearchEngineList = ref<DeskModule.SearchBox.SearchEngine[]>([
   {
     iconSrc: SvgSrcBing,
     title: '总站',
-    url: 'https://www.google.com/search?q=%s',
+    url: 'http://www.cbirc/search/searchs_kpy.html?title=&content=%s&appendSearchWord=&startTime=&endTime=',
   },
   {
     iconSrc: SvgSrcBaidu,
     title: '省站',
-    url: 'https://www.baidu.com/s?wd=%s',
+    url: 'http://10.96.0.121/newsgw/#/search',
   },
 ])
 
