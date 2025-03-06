@@ -3,7 +3,7 @@ import { PanelPanelConfigStyleEnum, PanelStateNetworkModeEnum } from '@/enums'
 import defaultBackground from '@/assets/defaultBackground.webp'
 const LOCAL_NAME = 'panelStorage'
 
-const defaultFooterHtml = '<div class="flex justify-center text-slate-300" style="margin-top:100px">Powered By 导航站</a></div>'
+const defaultFooterHtml = '<div class="flex justify-center text-slate-300" style="margin-top:100px">Powered By 智能平台</a></div>'
 
 export function defaultStatePanelConfig(): Panel.panelConfig {
   return {
